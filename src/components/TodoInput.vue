@@ -30,21 +30,22 @@
       }
     },
     methods: {
-      addTodo: function () {
+      addTodo() {
         //console.log(this.newTodoItem);
         if(this.newTodoItem !== '') {
-          this.$emit('addTodoItem',this.newTodoItem);
+          //this.$emit('addTodoItem',this.newTodoItem);
+          this.$store.commit('addOneItem', this.newTodoItem);
           this.clearInput();
         } else {
           this.showModal = !this.showModal;
         }
       },
-      clearInput: function() {
+      clearInput() {
         this.newTodoItem = '';
       }
     },
     components: {
-      'Modal': Modal
+      Modal
     }
   }
 </script>
